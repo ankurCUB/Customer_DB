@@ -1,4 +1,4 @@
-package cutomer_db;
+package cutomerDB;
 
 import java.io.File;
 import java.sql.Connection;
@@ -14,8 +14,10 @@ public interface Utils {
         Connection fetchConnection = getConnectionToCustomerDB();
         String sql = "SELECT userID FROM Login WHERE \"username\" = \"" + username + "\" and \"password\" = " + "\"" + password + "\"";
         ResultSet resultSet = fetchConnection.createStatement().executeQuery(sql);
-        resultSet.next();
-        int userID = resultSet.getInt(1);
+        int userID = -1;
+        if(resultSet.next()){
+            userID = resultSet.getInt(1);
+        }
         fetchConnection.close();
         return userID;
     }

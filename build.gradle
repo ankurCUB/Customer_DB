@@ -1,17 +1,60 @@
 plugins {
     id 'java'
+    id 'com.google.protobuf' version '0.9.1'
+    id 'idea'
 }
 
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+def grpcVersion = '1.53.0'
+def protobufVersion = '3.21.7'
+def protocVersion = protobufVersion
+
 repositories {
+//    maven { // The google mirror is less flaky than mavenCentral()
+//        url "https://maven-central.storage-download.googleapis.com/maven2/" }
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
+
+    implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+    implementation "io.grpc:grpc-stub:${grpcVersion}"
+
+    implementation "com.google.protobuf:protobuf-java-util:${protobufVersion}"
+
+    implementation "io.grpc:grpc-netty-shaded:${grpcVersion}"
+
+    implementation 'org.json:json:20220320'
+
+    implementation 'org.xerial:sqlite-jdbc:3.34.0'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+protobuf {
+    protoc { artifact = "com.google.protobuf:protoc:${protocVersion}" }
+    plugins {
+        grpc { artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}" }
+    }
+    generateProtoTasks {
+        all()*.plugins { grpc {} }
+    }
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest {
+        attributes "Main-Class": "cutomerDB.CustomerDBServer"
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 test {

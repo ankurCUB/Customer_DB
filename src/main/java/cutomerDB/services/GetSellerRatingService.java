@@ -1,9 +1,9 @@
-package cutomer_db.services;
+package cutomerDB.services;
 
 import com.example.DistributedAssignment.cutomer_db.services.GetSellerRatingGrpc;
 import com.example.DistributedAssignment.cutomer_db.services.SellerRating;
 import com.example.DistributedAssignment.cutomer_db.services.UserID;
-import cutomer_db.Utils;
+import cutomerDB.Utils;
 import io.grpc.stub.StreamObserver;
 
 import java.sql.SQLException;

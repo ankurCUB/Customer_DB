@@ -1,8 +1,8 @@
-package cutomer_db;
-import cutomer_db.services.BuyerService;
-import cutomer_db.services.CredentialsService;
-import cutomer_db.services.GetSellerRatingService;
-import cutomer_db.services.ShoppingCartServices;
+package cutomerDB;
+import cutomerDB.services.BuyerService;
+import cutomerDB.services.CredentialsService;
+import cutomerDB.services.GetSellerRatingService;
+import cutomerDB.services.ShoppingCartServices;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 

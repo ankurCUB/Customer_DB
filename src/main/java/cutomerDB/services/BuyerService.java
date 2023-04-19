@@ -1,8 +1,8 @@
-package cutomer_db.services;
+package cutomerDB.services;
 
 import com.example.DistributedAssignment.cutomer_db.services.*;
 import com.example.DistributedAssignment.cutomer_db.services.Void;
-import cutomer_db.Utils;
+import cutomerDB.Utils;
 import io.grpc.stub.StreamObserver;
 
 import java.sql.Connection;

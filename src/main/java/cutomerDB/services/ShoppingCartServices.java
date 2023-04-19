@@ -1,9 +1,9 @@
-package cutomer_db.services;
+package cutomerDB.services;
 
 import com.example.DistributedAssignment.cutomer_db.services.ItemToCartRequest;
 import com.example.DistributedAssignment.cutomer_db.services.ShoppingCartItemServicesGrpc;
 import com.example.DistributedAssignment.cutomer_db.services.UserID;
-import cutomer_db.Utils;
+import cutomerDB.Utils;
 import io.grpc.stub.StreamObserver;
 import com.example.DistributedAssignment.cutomer_db.services.Void;
 

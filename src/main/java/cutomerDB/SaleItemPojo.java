@@ -1,4 +1,4 @@
-package cutomer_db;
+package cutomerDB;
 
 public class SaleItemPojo {
     private String itemName;
